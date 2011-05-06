@@ -66,11 +66,11 @@ class Parser
 
 };
 
-
-
-
-
-
-
+#include "constructors.cpp"
+#include "accessors.cpp"
+#include "mutators.cpp"
+#include "open.cpp"
+#include "ReadNextWord.cpp"
+#include "overloaded-operators.cpp"
 
 #endif // PARSERDEF_H
