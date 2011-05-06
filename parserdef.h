@@ -4,10 +4,12 @@ special characters, etc...*/
 #ifndef PARSERDEF_H
 #define PARSERDEF_H
 
-#include "numkeys.h"
+
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include "keyword.h"
 
 class Parser
 {
@@ -15,8 +17,8 @@ class Parser
     int CurrNum;                                        //keep track of how many keywords have been added.
 	int InputIndex;					   					 // keep track of which character in the input we are on
 
-    std::string Input;                                  //This will define some input text
-    std::string Keyword[NUMKEYS];                     //This will keep a list of all of the keywords a programmer defines.
+   	std::string Input;                                  //This will define some input text
+	std::vector<keyword> Keyword;				//I decided to use a vector rather than a linked list because--although vectors cost a lot more when adding, random accesses are much quicker than with a linked list. I can envision there being a lot of random accesses when it comes to keywords.
 
 	std::string CommentLine;
 	std::string CommentStart;
@@ -32,18 +34,19 @@ class Parser
 
         //Accessors:
         std::string getInput();
-        std::string getKeywordByIndex(int index);           //index follows normal cpp rules, i.e. the first in array is 0, NOT 1
-        std::string getKeywordByName(std::string keyword);   //this gets the keyword by name
-        void getKeywords(std::string keywords[]);            //arrays are call-by-index, so this will replace the array with what is in the class
+        std::string getWordByIndex(int index);           //index follows normal cpp rules, i.e. the first in array is 0, NOT 1
+        std::string getWordByName(std::string keyword);   //this gets the keyword by name
+	std::string getSymbolByWord(std::string word);
         std::string getCommentLine();
         std::string getCommentStart();
         std::string getCommentEnd();
+;
 
         //Mutators:
         void setInput(std::string input);
-        void setKeywords(std::string keywords[]);
-        void setKeywordByIndex( std::string keyword, int index);
-        std::string addKeyword(std::string input);
+
+        void setWordByIndex( std::string word, int index);
+        void addKeyword(std::string word, std::string symbol);
         void setCommentLine(std::string comment_line);
         void setCommentStart(std::string comment_start);
         void setCommentEnd(std::string comment_end);

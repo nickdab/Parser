@@ -30,6 +30,7 @@ void Parser::addKeyword(std::string word, std::string symbol)
 
 	Keyword.push_back(new_keyword);
 
+	return "";
 }
 
 void Parser::setCommentLine(std::string comment_line)

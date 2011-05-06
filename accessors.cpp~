@@ -46,7 +46,7 @@ std::string Parser::getSymbolByWord(std::string word)
 		}
 	}
 
-	std::string err_msg = "[Parser Error]GetSymbolByWord: no word matched argument \"" + word + "\"\n";
+	err_msg = "[Parser Error]GetSymbolByWord: no word matched argument \"" + word + "\"\n";
 
 	return err_msg;
 }

@@ -8,7 +8,11 @@ int main()
 {
 	Parser parser;
 
-	parser.Open("test.txt");
+	parser.Open("in.txt");
+	
+	parser.addKeyword("keyword","symbol");
+
+	cout << parser.getSymbolByName("keyword");
 
 	cout << parser;
 
