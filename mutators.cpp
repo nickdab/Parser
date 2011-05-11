@@ -8,25 +8,17 @@ void Parser::setInput(std::string input)
 	Input = input;
 }
 
-
-
-
-
-
-
-
-
 void Parser::setWordByIndex(std::string word, int index)
 {
 	Keyword[index].Word = word;
 }
 
 void Parser::addKeyword(std::string word, std::string symbol)
-{ 
-	
+{
+
 	keyword new_keyword;
 	new_keyword.Word = word;
-       	new_keyword.Symbol = symbol;	
+       	new_keyword.Symbol = symbol;
 
 	Keyword.push_back(new_keyword);
 

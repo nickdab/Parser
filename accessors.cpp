@@ -1,6 +1,18 @@
 #include "parserdef.h"
 #include "keyword.h"
 
+bool Parser::EndOfFile()
+{
+	if (InputIndex >= Input.size())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 std::string Parser::getInput()
 {
     return Input;

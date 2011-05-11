@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="constructors.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="0" topLine="0" />
+	<File name="ReadNextWord.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="1295" topLine="7" />
 	</File>
-	<File name="open.cpp" open="1" top="0" tabpos="6">
-		<Cursor position="0" topLine="0" />
+	<File name="accessors.cpp" open="1" top="1" tabpos="7">
+		<Cursor position="48" topLine="3" />
+	</File>
+	<File name="constructors.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="24" topLine="0" />
+	</File>
+	<File name="mutators.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="702" topLine="0" />
+	</File>
+	<File name="open.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="24" topLine="0" />
 	</File>
 	<File name="overloaded-operators.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="1776" topLine="6" />
+		<Cursor position="4138" topLine="107" />
 	</File>
-	<File name="parserdef.h" open="1" top="0" tabpos="5">
-		<Cursor position="641" topLine="3" />
+	<File name="parserdef.h" open="1" top="0" tabpos="1">
+		<Cursor position="10885" topLine="0" />
 	</File>
-	<File name="test.cpp" open="1" top="0" tabpos="1">
+	<File name="test.cpp" open="1" top="0" tabpos="2">
 		<Cursor position="68" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
