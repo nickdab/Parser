@@ -37,7 +37,7 @@ std::istream& operator>>(std::istream& in, Parser& parser)
 
 					if (full_word == parser.CommentLine)
 					{
-						while (this_char != '\n')
+						while (this_char != '\n' && in)
 						{
 							this_char = in.get(); //ignore the rest of the line
 						}
@@ -118,7 +118,7 @@ bool  operator==(Parser& parser1, Parser& parser2)
             return false;
         }
 
-    for (int i = 0; i < NUMKEYS; i++)
+    for (int i = 0; i < parser1.Keyword.size(); i++)
     {
         if (parser1.Keyword[i].Word != parser2.Keyword[i].Word)
         {
@@ -136,7 +136,7 @@ bool operator!=(Parser& parser1, Parser& parser2)
             return true;
         }
 
-    for (int i = 0; i < NUMKEYS; i++)
+    for (int i = 0; i < parser1.Keyword.size(); i++)
     {
         if (parser1.Keyword[i].Word != parser2.Keyword[i].Word)
         {

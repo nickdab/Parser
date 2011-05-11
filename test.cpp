@@ -8,11 +8,11 @@ int main()
 {
 	Parser parser;
 
-	parser.Open("in.txt");
-	
-	parser.addKeyword("keyword","symbol");
+	parser.setCommentStart("/*");
+	parser.setCommentEnd("*/");
+	parser.setCommentLine("//");
 
-	cout << parser.getSymbolByWord("keyword");
+	parser.Open("in.txt");
 
 	cout << parser;
 

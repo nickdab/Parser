@@ -1,3 +1,11 @@
 hey there hi there ho there!
-
+//this is a comment.
 Hey hey hey!
+/*start a comment.
+		This whole thing should be forgotten.
+		
+		
+		
+		I mean it!//even that shouldn't count.*/
+		
+		The end!//this should work now.

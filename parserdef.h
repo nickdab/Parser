@@ -69,11 +69,4 @@ class Parser
 
 };
 
-
-
-
-
-
-
-
 #endif // PARSERDEF_H

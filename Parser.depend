@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1305127782 source:e:\code\parser\accessors.cpp
+	"parserdef.h"
+	"keyword.h"
+
+1305127782 e:\code\parser\parserdef.h
+	<string>
+	<iostream>
+	<fstream>
+	<vector>
+	"keyword.h"
+
+1305127782 e:\code\parser\keyword.h
+	<string>
+
+1305127782 source:e:\code\parser\constructors.cpp
+	"parserdef.h"
+
+1305127782 source:e:\code\parser\mutators.cpp
+	"parserdef.h"
+	"keyword.h"
+
+1305127782 source:e:\code\parser\open.cpp
+	"parserdef.h"
+
+1305129658 source:e:\code\parser\overloaded-operators.cpp
+	"parserdef.h"
+	"keyword.h"
+
+1305127782 source:e:\code\parser\readnextword.cpp
+	"parserdef.h"
+
+1305129410 source:e:\code\parser\test.cpp
+	<iostream>
+	"parserdef.h"
+
