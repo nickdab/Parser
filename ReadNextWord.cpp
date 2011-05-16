@@ -46,3 +46,25 @@ std::string Parser::ReadNextWord()
 
 	return word;
 }
+
+void Parser::ReplaceCurrWord(std::string new_word)
+{
+	int temp_index = InputIndex;
+	temp_index--;
+	int word_end = temp_index+1;
+	std::string word = "";
+	char curr_char = Input[temp_index];
+
+	while ((!is_whitespace(curr_char)) && (InputIndex >= 0))
+	{
+		word = word + curr_char;
+		temp_index--;
+		curr_char = Input[temp_index];
+	}
+
+	int word_start = temp_index+1;
+
+	Input.replace(word_start,word_end-word_start,new_word);
+
+}
+
