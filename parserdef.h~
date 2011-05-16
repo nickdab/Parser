@@ -38,6 +38,7 @@ class Parser
         std::string getWordByIndex(int index);           //index follows normal cpp rules, i.e. the first in array is 0, NOT 1
         std::string getWordByName(std::string keyword);   //this gets the keyword by name
 	std::string getSymbolByWord(std::string word);
+	int getKeywordSize();
         std::string getCommentLine();
         std::string getCommentStart();
         std::string getCommentEnd();
@@ -63,6 +64,7 @@ class Parser
 
 		//This memeber returns the next word after a given index
 		std::string ReadNextWord();
+		void ReplaceCurrWord(std::string new_word);
 
 		//This member resets the InputIndex to 0
 		void ResetInputIndex();
@@ -91,6 +93,13 @@ Parser::Parser(std::string input)
     CurrNum = 0;
     InputIndex = 0;
 	CommentLine = "";
+}
+
+int Parser::getKeywordSize()
+{
+	int size = Keyword.size();
+
+	return size;
 }
 
 
@@ -204,6 +213,8 @@ std::ostream& operator<<(std::ostream& out, Parser& parser)
     return out;
 }
 
+
+
 bool  operator==(Parser& parser1, Parser& parser2)
 {
         if (parser1.Input != parser2.Input)
@@ -273,7 +284,7 @@ void Parser::Open(std::string file_name)
 
 bool is_whitespace(char input)
 {
-	if((input == 0) || (input == ' ') || (input == '\t') || (input == 10) || (input == 14) || (input == 13) || (input == 9) || (input == ';') || (input == ':') )
+	if((input == 0) || (input == ' ') || (input == '\t') || (input == 10) || (input == 14) || (input == 13) || (input == 9) )
 	{
 		return true;
 	}
@@ -312,6 +323,26 @@ std::string Parser::ReadNextWord()
 	return word;
 }
 
+void Parser::ReplaceCurrWord(std::string new_word)
+{
+	int temp_index = InputIndex;
+	temp_index--;
+	int word_end = temp_index+1;
+	std::string word = "";
+	char curr_char = Input[temp_index];
+
+	while ((!is_whitespace(curr_char)) && (InputIndex >= 0))
+	{
+		word = word + curr_char;
+		temp_index--;
+		curr_char = Input[temp_index];
+	}
+
+	int word_start = temp_index+1;
+
+	Input.replace(word_start,word_end-word_start,new_word);
+
+}
 //accessors:
 
 bool Parser::EndOfFile()
