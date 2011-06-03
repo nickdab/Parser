@@ -143,6 +143,7 @@ std::istream& operator>>(std::istream& in, Parser& parser)
 						{
 							this_char = in.get(); //ignore the rest of the line
 						}
+						in_text = in_text + this_char;
 					}
 					else	//we need to put everything back and check for the other comment symbol.
 					{
@@ -326,46 +327,48 @@ std::string Parser::ReadNextWord()
 void Parser::ReplaceCurrWord(std::string new_word)
 {
 	int temp_index = InputIndex;
-	std::string new_input = "", end = "";
-
-	int word_end = temp_index-1;
 	temp_index--;
+	int word_size = 0;
+
+	int word_end = temp_index;
+
 	char curr_char = Input[temp_index];
 
-	for (int i = 0; i < word_end+1;i++)
-	{
-		new_input =new_input + Input[i];
-	}
-
-	for (int i = word_end+1;i<Input.size();i++)
-	{
-		end = end + Input[i];
-	}
-
-		
-	while ((curr_char != ' ') && (curr_char != '\n') && (temp_index >= 0))
+	while ( is_whitespace(curr_char)==false && temp_index >= 0)
 	{
 		temp_index--;
 		curr_char = Input[temp_index];
 	}
 
-	int word_start = temp_index+1;
+	temp_index++;
 
-
-	std::cout << "Replacing ";
-
-	for (int i = word_start;i<=word_end;i++)
+	std::cout << "Erasing ";
+	for (int i = temp_index; i <= word_end; i ++)
 	{
 		std::cout << Input[i];
 	}
-	std::cout << " with " << new_word << std::endl; 
+	std::cout << ",Replacing with " << new_word << " \n";
 
-	new_input.erase(word_start,word_end-(word_start-1));
+	word_size = word_end-temp_index+1;
 
-	new_input = new_input + new_word+end;
+	Input.erase(temp_index,word_size);
+	Input.insert(temp_index,new_word);
 
-	Input = new_input;
+	temp_index++;
 
+	curr_char = Input[temp_index];
+
+	while (is_whitespace(curr_char)==false && temp_index < Input.size())
+	{
+		temp_index++;
+		curr_char = Input[temp_index];	
+	}
+	
+	InputIndex = temp_index;
+
+	std::cout << "Next Word is " << ReadNextWord() << std::endl;
+
+	InputIndex = temp_index;
 
 }
 //accessors:
