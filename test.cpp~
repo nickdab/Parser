@@ -6,15 +6,19 @@ using namespace std;
 
 int main()
 {
+	string test1 = "hello, world", test2 = "everybody.";
 	Parser parser;
 
-	parser.Open("in.txt");
-	
-	parser.addKeyword("keyword","symbol");
+	parser.setInput(test1);
 
-	cout << parser.getSymbolByName("keyword");
+	cout << parser << endl;
 
-	cout << parser;
+	parser.ReadNextWord();
+	parser.ReadNextWord();
+
+	parser.ReplaceCurrWord(test2);
+
+	cout << parser<<endl;
 
 	return 0;
 }

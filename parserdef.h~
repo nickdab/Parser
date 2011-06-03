@@ -301,7 +301,7 @@ void Parser::ResetInputIndex()
 
 std::string Parser::ReadNextWord()
 {
-	char curr_char;
+	char curr_char='8';
 	std::string word = "";
 
 	curr_char = Input[InputIndex];
@@ -326,34 +326,59 @@ std::string Parser::ReadNextWord()
 void Parser::ReplaceCurrWord(std::string new_word)
 {
 	int temp_index = InputIndex;
+	std::string new_input = "", end = "";
+
+	int word_end = temp_index-1;
 	temp_index--;
-	int word_end = temp_index+1;
-	std::string word = "";
 	char curr_char = Input[temp_index];
 
-	while ((!is_whitespace(curr_char)) && (InputIndex >= 0))
+	for (int i = 0; i < word_end+1;i++)
 	{
-		word = word + curr_char;
+		new_input =new_input + Input[i];
+	}
+
+	for (int i = word_end+1;i<Input.size();i++)
+	{
+		end = end + Input[i];
+	}
+
+		
+	while ((curr_char != ' ') && (curr_char != '\n') && (temp_index >= 0))
+	{
 		temp_index--;
 		curr_char = Input[temp_index];
 	}
 
 	int word_start = temp_index+1;
 
-	Input.replace(word_start,word_end-word_start,new_word);
+
+	std::cout << "Replacing ";
+
+	for (int i = word_start;i<=word_end;i++)
+	{
+		std::cout << Input[i];
+	}
+	std::cout << " with " << new_word << std::endl; 
+
+	new_input.erase(word_start,word_end-(word_start-1));
+
+	new_input = new_input + new_word+end;
+
+	Input = new_input;
+
 
 }
 //accessors:
 
 bool Parser::EndOfFile()
 {
-	if (InputIndex >= Input.size())
+	if (InputIndex < Input.size())
 	{
-		return true;
+		return false;
 	}
 	else
 	{
-		return false;
+		return true;
 	}
 }
 

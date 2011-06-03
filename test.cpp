@@ -6,15 +6,19 @@ using namespace std;
 
 int main()
 {
+	string test1 = "hello, world, I would like to know how you all are today.", test2 = "everybody.";
 	Parser parser;
 
-	parser.setCommentStart("/*");
-	parser.setCommentEnd("*/");
-	parser.setCommentLine("//");
+	parser.setInput(test1);
 
-	parser.Open("in.txt");
+	cout << parser << endl;
 
-	cout << parser;
+	parser.ReadNextWord();
+	parser.ReadNextWord();
+
+	parser.ReplaceCurrWord(test2);
+
+	cout << parser<<endl;
 
 	return 0;
 }
